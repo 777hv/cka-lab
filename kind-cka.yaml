@@ -1,0 +1,23 @@
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: cka
+kubeadmConfigPatches:
+- |
+  apiVersion: kubeadm.k8s.io/v1beta4
+  kind: InitConfiguration
+  timeouts:
+    kubernetesAPICall: 5m0s
+    controlPlaneComponentHealthCheck: 8m0s
+    kubeletHealthCheck: 8m0s
+- |
+  apiVersion: kubeadm.k8s.io/v1beta4
+  kind: JoinConfiguration
+  timeouts:
+    kubernetesAPICall: 5m0s
+    kubeletHealthCheck: 8m0s
+    tlsBootstrap: 10m0s
+    discovery: 10m0s
+nodes:
+- role: control-plane
+- role: worker
+- role: worker
