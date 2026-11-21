@@ -1,0 +1,9 @@
+# Credenciales y material sensible
+*kubeconfig*
+.kube/
+*.key
+*.pem
+.env
+*.db
+*snapshot*
+token*.txt
